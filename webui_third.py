@@ -44,12 +44,12 @@ max_val = 0.8
 
 
 reference_wavs = ["请选择参考音频或者自己上传"]
-for name in os.listdir(f"{ROOT_DIR}/参考音频/"):
+for name in os.listdir(f"{ROOT_DIR}/examples/参考音频/"):
     reference_wavs.append(name)
 
 spk_new = ["无"]
 
-for name in os.listdir(f"{ROOT_DIR}/voices/"):
+for name in os.listdir(f"{ROOT_DIR}/examples/voices/"):
     # print(name.replace(".pt",""))
     spk_new.append(name.replace(".pt",""))
 
@@ -58,7 +58,7 @@ def refresh_choices():
 
     spk_new = ["无"]
 
-    for name in os.listdir(f"{ROOT_DIR}/voices/"):
+    for name in os.listdir(f"{ROOT_DIR}/examples/voices/"):
         # print(name.replace(".pt",""))
         spk_new.append(name.replace(".pt",""))
     
@@ -68,7 +68,7 @@ def change_choices():
 
     reference_wavs = ["选择参考音频,或者自己上传"]
 
-    for name in os.listdir(f"{ROOT_DIR}/参考音频/"):
+    for name in os.listdir(f"{ROOT_DIR}/examples/参考音频/"):
         reference_wavs.append(name)
     
     return {"choices":reference_wavs, "__type__": "update"}
@@ -78,7 +78,7 @@ def change_wav(audio_path):
 
     text = audio_path.replace(".wav","").replace(".mp3","").replace(".WAV","")
 
-    return f"{ROOT_DIR}/参考音频/{audio_path}",text
+    return f"{ROOT_DIR}/examples/参考音频/{audio_path}",text
 
 
 def save_name(name):
@@ -87,7 +87,7 @@ def save_name(name):
         gr.Info("音色名称不能为空")
         return False
 
-    shutil.copyfile(f"{ROOT_DIR}/output.pt",f"{ROOT_DIR}/voices/{name}.pt")
+    shutil.copyfile(f"{ROOT_DIR}/output.pt",f"{ROOT_DIR}/examples/voices/{name}.pt")
     gr.Info("音色保存成功,存放位置为voices目录")
 
 def generate_seed():

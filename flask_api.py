@@ -28,9 +28,9 @@ default_voices = ['中文女', '中文男', '日语男', '粤语女', '英文女
 
 spk_new = []
 
-for name in os.listdir(f"{ROOT_DIR}/voices/"):
-    print(name.replace(".py",""))
-    spk_new.append(name.replace(".py",""))
+for name in os.listdir(f"{ROOT_DIR}/examples/voices/"):
+    print(name.replace(".pt",""))
+    spk_new.append(name.replace(".pt",""))
 
 print("默认音色",cosyvoice.list_avaliable_spks())
 print("自定义音色",spk_new)
@@ -228,7 +228,7 @@ def speakers():
     for x in default_voices:
         voices.append({"name":x,"voice_id":x})
 
-    for name in os.listdir("voices"):
+    for name in os.listdir("examples/voices"):
         name = name.replace(".pt","")
         voices.append({"name":name,"voice_id":name})
 

@@ -53,7 +53,8 @@ def main():
     tts_speech = torch.from_numpy(np.array(np.frombuffer(tts_audio, dtype=np.int16))).unsqueeze(dim=0)
     logging.info('save response to {}'.format(args.tts_wav))
     torchaudio.save(args.tts_wav, tts_speech, target_sr)
-    logging.info('get response')
+    logging.info('get response successfully')
+    print(f"保存生成结果到: {args.tts_wav}")
 
 
 if __name__ == "__main__":
@@ -79,14 +80,14 @@ if __name__ == "__main__":
                         default='希望你以后能够做的比我还好呦。')
     parser.add_argument('--prompt_wav',
                         type=str,
-                        default='../../../zero_shot_prompt.wav')
+                        default='./zero_shot_prompt.wav')
     parser.add_argument('--instruct_text',
                         type=str,
                         default='Theo \'Crimson\', is a fiery, passionate rebel leader. \
                                  Fights with fervor for justice, but struggles with impulsiveness.')
     parser.add_argument('--tts_wav',
                         type=str,
-                        default='demo.wav')
+                        default='demo.wav', help="保存的生成结果的位置")
     args = parser.parse_args()
     prompt_sr, target_sr = 16000, 22050
     main()

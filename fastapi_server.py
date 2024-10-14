@@ -22,8 +22,10 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import numpy as np
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append('{}/../../..'.format(ROOT_DIR))
-sys.path.append('{}/../../../third_party/Matcha-TTS'.format(ROOT_DIR))
+# sys.path.append('{}/../../..'.format(ROOT_DIR))
+# sys.path.append('{}/../../../third_party/Matcha-TTS'.format(ROOT_DIR))
+sys.path.append('{}/third_party/AcademiCodec'.format(ROOT_DIR))
+sys.path.append('{}/third_party/Matcha-TTS'.format(ROOT_DIR))
 from cosyvoice.cli.cosyvoice import CosyVoice
 from cosyvoice.utils.file_utils import load_wav
 
