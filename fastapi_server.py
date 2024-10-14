@@ -79,7 +79,7 @@ if __name__ == '__main__':
     parser.add_argument('--model_dir',
                         type=str,
                         default='iic/CosyVoice-300M',
-                        help='local path or modelscope repo id')
+                        help='local path or modelscope repo id， 本地的模型，例如pretrained_models/CosyVoice-300M')
     args = parser.parse_args()
     cosyvoice = CosyVoice(args.model_dir)
     uvicorn.run(app, host="0.0.0.0", port=args.port)
