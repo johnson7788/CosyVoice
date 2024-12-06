@@ -1,0 +1,1 @@
+/opt/lang/audio/cosyvoice_api.py
