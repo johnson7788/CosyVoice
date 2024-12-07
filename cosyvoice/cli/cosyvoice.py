@@ -60,7 +60,7 @@ class CosyVoice:
 
     def inference_sft(self, tts_text, spk_id, stream=False, speed=1.0):
         for i in tqdm(self.frontend.text_normalize(tts_text, split=True)):
-            model_input = self.frontend.frontend_sft(i, spk_id)
+            model_input = self.frontend.frontend_sft(i, spk_id) #i是1个句子
             start_time = time.time()
             logging.info('synthesis text {}'.format(i))
             for model_output in self.model.tts(**model_input, stream=stream, speed=speed):
